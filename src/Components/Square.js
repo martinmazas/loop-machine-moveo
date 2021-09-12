@@ -13,7 +13,6 @@ const useStyles = makeStyles({
         marginLeft: 50,
         marginTop: 50,
         display: 'inline-block',
-        // backgroundColor: 'pink'
     },
     title: {
         fontSize: 25,
@@ -25,6 +24,7 @@ export default function Square(props) {
     const loops = props.loop;
     const changeLoopState = props.changeLoopState;
 
+    // Change the loop state on clicking the ON/OFF button
     const handleClickIcon = (id, cond) => {
         if (cond === 'deactivate') {
             loops.state = 'off';

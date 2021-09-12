@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import IconButton from '@material-ui/core/IconButton';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 import MicIcon from '@material-ui/icons/Mic';
-// import AudioReactRecorder, { RecordState } from 'audio-react-recorder';
+import { RecordState } from 'audio-react-recorder';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     maxWidth: 200,
     maxHeight: 100,
-    margin: '0 auto'
+    margin: '0 auto',
   },
   details: {
     display: 'flex',
@@ -38,7 +38,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MediaControlCard(props) {
   const classes = useStyles();
-  // const [recordState, setRecordState] = useState(null);
+  const [record, setRecord] = useState(false);
+  const [recordState, setRecordState] = useState(null);
+
+  // Change the record state
+  const recordControl = () => {
+    setRecord(!record);
+  }
+
+  useEffect(() => {
+    record ? setRecordState({ recordState: RecordState.START }) : setRecordState({ recordState: RecordState.STOP });
+    console.log(recordState);
+  }, [record]);
 
   return (
     <Card className={classes.root}>
@@ -50,9 +61,9 @@ export default function MediaControlCard(props) {
           <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
-          <IconButton onClick={() => props.setPlaying(true)}>
-            {/* <AudioReactRecorder style={{ width: 40, height: 40 }} state={recordState} onStop={console.log('audio')} /> */}
-            <MicIcon style={{ width: 30, height: 30 }} />
+          <IconButton>
+            {/* <AudioReactRecorder canvasWidth={40} canvasHeight={40} foregroundColor={'rgb(256, 256, 70)'} backgroundColor={'rgb(256, 256, 70)'} state={recordState} onStop={console.log('audio')} /> */}
+            <MicIcon onClick={recordControl} style={{ width: 30, height: 30, color: record ? 'red' : 'black' }} />
           </IconButton>
         </div>
       </div>
