@@ -4,7 +4,6 @@ import Container from '@material-ui/core/Container';
 import MediaControlCard from './MediaControlCard';
 import Square from './Square';
 import allLoops from '../Data/samples.json';
-import RecordLoop from './RecordLoop';
 
 const styles = {
     wrapper: {
@@ -34,7 +33,6 @@ export default function Pad() {
             <CssBaseline />
             <Container fixed style={styles.wrapper}>
                 <MediaControlCard loops={loops.filter(loop => loop.state === 'on')} setPlaying={setPlaying} />
-                <RecordLoop />
                 <div style={styles.squares}>
                     {loops.map((loop => (
                         <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} setPlaying={setPlaying} />
