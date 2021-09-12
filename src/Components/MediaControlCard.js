@@ -48,7 +48,6 @@ export default function MediaControlCard(props) {
 
   useEffect(() => {
     record ? setRecordState({ recordState: RecordState.START }) : setRecordState({ recordState: RecordState.STOP });
-    console.log(recordState);
   }, [record]);
 
   return (
@@ -61,9 +60,9 @@ export default function MediaControlCard(props) {
           <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={recordControl} aria-label="record">
             {/* <AudioReactRecorder canvasWidth={40} canvasHeight={40} foregroundColor={'rgb(256, 256, 70)'} backgroundColor={'rgb(256, 256, 70)'} state={recordState} onStop={console.log('audio')} /> */}
-            <MicIcon onClick={recordControl} style={{ width: 30, height: 30, color: record ? 'red' : 'black' }} />
+            <MicIcon className="recordButton" style={{ width: 30, height: 30, color: record ? 'red' : 'black' }} />
           </IconButton>
         </div>
       </div>
