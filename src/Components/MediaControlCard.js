@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MediaControlCard(props) {
   const classes = useStyles();
   const [record, setRecord] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [recordState, setRecordState] = useState(null);
 
   // Change the record state
