@@ -1,4 +1,3 @@
-import './App.css';
 import Pad from './Components/Pad';
 
 function App() {

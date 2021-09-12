@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -6,8 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
-import ReactHowler from 'react-howler';
-// const { Howl } = require("howler");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,50 +35,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MediaControlCard(props) {
   const classes = useStyles();
-  const [activeLoops, setActiveLoops] = useState([]);
-  const [playing, setPlaying] = useState(false);
-  // const [sound, setSound] = useState();
-
-  const playLoops = () => {
-    const active = props.loops.map(loop => loop.url);
-    setActiveLoops(activeLoops => [...active]);
-    // setActiveLoops(['https://drive.google.com/uc?export=download&id=1noQWMzjEQtBmlwbR8dNUOhTFyCjto0FR'],['https://drive.google.com/uc?export=download&id=1uZhRv8noq9N0ENT044Nec9g2ghJGz_fI'],['https://drive.google.com/uc?export=download&id=1K6MQYzMj3YjGwP8xj5TrOFFKnIFkQAZC']);
-    setPlaying(true);
-  }
-
-  const stopLoops = () => {
-    setPlaying(false);
-  }
-
-  useEffect(() => {
-    console.log(playing, activeLoops);
-  }, [playing, activeLoops]);
 
   return (
     <Card className={classes.root}>
       <div className={classes.details}>
-        {(activeLoops.length>0)?<ReactHowler
-          src={activeLoops}
-          // src={['https://drive.google.com/uc?export=download&id=1uZhRv8noq9N0ENT044Nec9g2ghJGz_fI','https://drive.google.com/uc?export=download&id=1K6MQYzMj3YjGwP8xj5TrOFFKnIFkQAZC','https://drive.google.com/uc?export=download&id=1noQWMzjEQtBmlwbR8dNUOhTFyCjto0FR']}
-          playing={playing}
-          html5={true}
-          loop={true}
-        />:<div></div>}
-
 
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            Live From Space
-          </Typography>
+          {/* <Typography component="h5" variant="h5">
+            {activeLoops.map(loop => loop.name)}
+          </Typography> */}
           <Typography variant="subtitle1" color="textSecondary">
             Mac Miller
           </Typography>
         </CardContent>
         <div className={classes.controls}>
-          <IconButton onClick={playLoops} aria-label="play">
+          <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
-          <IconButton onClick={stopLoops} aria-label="stop">
+          <IconButton onClick={() => props.setPlaying(false)} aria-label="stop">
             <StopIcon className={classes.playIcon} />
           </IconButton>
         </div>
