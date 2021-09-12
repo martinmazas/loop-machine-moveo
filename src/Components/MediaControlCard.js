@@ -1,15 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    maxWidth: 150,
+    maxHeight: 100,
+    margin: '0 auto'
   },
   details: {
     display: 'flex',
@@ -39,21 +40,12 @@ export default function MediaControlCard(props) {
   return (
     <Card className={classes.root}>
       <div className={classes.details}>
-
-        <CardContent className={classes.content}>
-          {/* <Typography component="h5" variant="h5">
-            {activeLoops.map(loop => loop.name)}
-          </Typography> */}
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
         <div className={classes.controls}>
-          <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
           <IconButton onClick={() => props.setPlaying(false)} aria-label="stop">
             <StopIcon className={classes.playIcon} />
+          </IconButton>
+          <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
+            <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
         </div>
       </div>

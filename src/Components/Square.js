@@ -1,23 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import ToggleOffIcon from '@material-ui/icons/ToggleOff';
-// import ToggleOnIcon from '@material-ui/icons/ToggleOn';
 import Button from '@material-ui/core/Button';
 import ReactHowler from 'react-howler';
-
-// const { Howl } = require("howler");
 
 const useStyles = makeStyles({
     root: {
         width: 250,
         height: 250,
         marginLeft: 50,
-        marginBottom: 50,
+        marginTop: 50,
         display: 'inline-block',
         // backgroundColor: 'pink'
     },
@@ -32,8 +26,7 @@ export default function Square(props) {
     const changeLoopState = props.changeLoopState;
 
     const handleClickIcon = (id, cond) => {
-        if(cond === 'deactivate')
-        {
+        if (cond === 'deactivate') {
             loops.state = 'off';
         }
         changeLoopState(id, cond);
@@ -43,10 +36,7 @@ export default function Square(props) {
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {loops.name}
-                </Typography>
-                <div style={{ marginTop: 50, alignItems: 'space-between' }}>
+                <div className="stateControl" style={{ alignItems: 'space-between' }}>
                     <ReactHowler
                         src={loops.url}
                         playing={(props.playing && loops.state === 'on')}
@@ -60,6 +50,12 @@ export default function Square(props) {
                         OFF
                     </Button>
                 </div>
+                <div className="loopName" style={{ marginTop: '10vh' }}>
+                    <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        {loops.name}
+                    </Typography>
+                </div>
+
             </CardContent>
         </Card>
     );

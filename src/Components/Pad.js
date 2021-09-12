@@ -10,10 +10,11 @@ const styles = {
         height: '100vh'
     },
     squares: {
+        marginTop: 20,
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: 'yellow'
+        backgroundColor: 'skyblue'
     }
 }
 
@@ -34,7 +35,7 @@ export default function Pad() {
                 <MediaControlCard loops={loops.filter(loop => loop.state === 'on')} setPlaying={setPlaying} />
                 <div style={styles.squares}>
                     {loops.map((loop => (
-                        <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} setPlaying={setPlaying}/>
+                        <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} setPlaying={setPlaying} />
                     )))}
                 </div>
             </Container>
