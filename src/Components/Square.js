@@ -43,10 +43,10 @@ export default function Square(props) {
                         html5={true}
                         loop={true}
                     />
-                    <Button className="onButton" onClick={() => handleClickIcon(loops.id, 'activate')} variant={loops.state === 'on' ? "contained" : ""} color="primary">
+                    <Button className="onButton" onClick={() => handleClickIcon(loops.id, 'activate')} variant={loops.state === 'on' ? "contained" : "outlined"} color="primary">
                         ON
                     </Button>
-                    <Button className="offButton" onClick={() => handleClickIcon(loops.id, 'deactivate')} variant={loops.state === 'off' ? "contained" : ""} color="secondary">
+                    <Button className="offButton" onClick={() => handleClickIcon(loops.id, 'deactivate')} variant={loops.state === 'off' ? "contained" : "outlined"} color="secondary">
                         OFF
                     </Button>
                 </div>

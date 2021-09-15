@@ -3,54 +3,63 @@
         "id": "0",
         "name": "SilentStar",
         "url": "https://drive.google.com/uc?export=download&id=1R4KN3czYEwwSREsdkUz4hXdv-f3ANIGE",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "1",
         "name": "Pas3grove1",
         "url": "https://drive.google.com/uc?export=download&id=1K6MQYzMj3YjGwP8xj5TrOFFKnIFkQAZC",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "2",
         "name": "MazePolitics",
         "url": "https://drive.google.com/uc?export=download&id=1noQWMzjEQtBmlwbR8dNUOhTFyCjto0FR",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "3",
         "name": "GrooveB",
         "url": "https://drive.google.com/uc?export=download&id=1oLUmyub7cV-3sq1TxpTeTjRr03v3kZxD",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "4",
         "name": "FUD120",
         "url": "https://drive.google.com/uc?export=download&id=16O0Zk4FWq4qX5MrwScSrXLOri0mIv0Se",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "5",
         "name": "Electric guitar country",
         "url": "https://drive.google.com/uc?export=download&id=15aNdG4gY6hG_yDItTBFZxMDkFvx-VX1n",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "6",
         "name": "Bass Warwick",
         "url": "https://drive.google.com/uc?export=download&id=1sO4g0VLC2F6Vo47vnBoAOOXWsj5oLOnX",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "7",
         "name": "120 stutter breakbeats",
         "url": "https://drive.google.com/uc?export=download&id=1Yj1DK1gyPoW7BmfXrKmX-S4jIduwiArh",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     },
     {
         "id": "8",
         "name": "120 future funk",
         "url": "https://drive.google.com/uc?export=download&id=1uZhRv8noq9N0ENT044Nec9g2ghJGz_fI",
-        "state": "off"
+        "state": "off",
+        "end": "yes"
     }
 ]
