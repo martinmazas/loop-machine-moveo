@@ -24,7 +24,13 @@ export default function Pad() {
 
     const changeLoopState = (id, cond) => {
         const changeLoop = loops.filter(loop => loop.id === id);
-        changeLoop[0].state = cond === 'activate' ? 'on' : 'off';
+        changeLoop[0].state = cond === 'activate' ? 'wait' : 'off';
+        console.log(changeLoop);
+        setLoops(loops => [...loops]);
+    }
+
+    const switchWaitToOn = () => {
+        loops.map(loop => loop.state === 'wait' ? loop.state = 'on' : "");
         setLoops(loops => [...loops]);
     }
 
@@ -32,10 +38,10 @@ export default function Pad() {
         <React.Fragment>
             <CssBaseline />
             <Container fixed style={styles.wrapper}>
-                <MediaControlCard loops={loops.filter(loop => loop.state === 'on')} setPlaying={setPlaying} />
+                <MediaControlCard setPlaying={setPlaying} switchWaitToOn={switchWaitToOn} />
                 <div style={styles.squares}>
                     {loops.map((loop => (
-                        <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} setPlaying={setPlaying} />
+                        <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} switchWaitToOn={switchWaitToOn} />
                     )))}
                 </div>
             </Container>

@@ -51,14 +51,23 @@ export default function MediaControlCard(props) {
     record ? setRecordState({ recordState: RecordState.START }) : setRecordState({ recordState: RecordState.STOP });
   }, [record]);
 
+  const handleClickPlay = () => {
+    props.setPlaying(true);
+    props.switchWaitToOn();
+  }
+
+  const handleClickStop = () => {
+    props.setPlaying(false);
+  }
+
   return (
     <Card className={classes.root}>
       <div className={classes.details}>
         <div className={classes.controls}>
-          <IconButton onClick={() => props.setPlaying(false)} aria-label="stop">
+          <IconButton onClick={handleClickStop} aria-label="stop">
             <StopIcon className={classes.playIcon} />
           </IconButton>
-          <IconButton onClick={() => props.setPlaying(true)} aria-label="play">
+          <IconButton onClick={handleClickPlay} aria-label="play">
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
           <IconButton onClick={recordControl} aria-label="record">

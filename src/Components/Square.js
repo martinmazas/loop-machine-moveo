@@ -23,15 +23,12 @@ export default function Square(props) {
     const classes = useStyles();
     const loops = props.loop;
     const changeLoopState = props.changeLoopState;
+    const switchWaitToOn = props.switchWaitToOn;
 
     // Change the loop state on clicking the ON/OFF button
-    const handleClickIcon = (id, cond) => {
-        if (cond === 'deactivate') {
-            loops.state = 'off';
-        }
-        changeLoopState(id, cond);
-    }
-
+    // const handleClickIcon = (id, cond) => {
+    //     changeLoopState(id, cond);
+    // }
 
     return (
         <Card className={classes.root} variant="outlined">
@@ -40,13 +37,15 @@ export default function Square(props) {
                     <ReactHowler
                         src={loops.url}
                         playing={(props.playing && loops.state === 'on')}
+                        preload={true}
                         html5={true}
-                        loop={true}
+                        onEnd={switchWaitToOn}
+                        // loop={true}
                     />
-                    <Button className="onButton" onClick={() => handleClickIcon(loops.id, 'activate')} variant={loops.state === 'on' ? "contained" : "outlined"} color="primary">
+                    <Button className="onButton" onClick={() => changeLoopState(loops.id, 'activate')} variant={loops.state !== 'off' ? "contained" : "outlined"} color="primary">
                         ON
                     </Button>
-                    <Button className="offButton" onClick={() => handleClickIcon(loops.id, 'deactivate')} variant={loops.state === 'off' ? "contained" : "outlined"} color="secondary">
+                    <Button className="offButton" onClick={() => changeLoopState(loops.id, 'deactivate')} variant={loops.state === 'off' ? "contained" : "outlined"} color="secondary">
                         OFF
                     </Button>
                 </div>
