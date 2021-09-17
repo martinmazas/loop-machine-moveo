@@ -22,26 +22,24 @@ const useStyles = makeStyles({
 export default function Square(props) {
     const classes = useStyles();
     const loops = props.loop;
+    const playing = props.playing;
     const changeLoopState = props.changeLoopState;
     const switchWaitToOn = props.switchWaitToOn;
-
-    // Change the loop state on clicking the ON/OFF button
-    // const handleClickIcon = (id, cond) => {
-    //     changeLoopState(id, cond);
-    // }
 
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <div className="stateControl" style={{ alignItems: 'space-between' }}>
-                    <ReactHowler
-                        src={loops.url}
-                        playing={(props.playing && loops.state === 'on')}
-                        preload={true}
-                        html5={true}
-                        onEnd={switchWaitToOn}
-                        // loop={true}
-                    />
+                    {loops.state === 'on' ?
+                        <ReactHowler
+                            src={loops.url}
+                            playing={playing}
+                            html5={true}
+                            preload={true}
+                            onEnd={switchWaitToOn}
+                        /> : ""
+                    }
+
                     <Button className="onButton" onClick={() => changeLoopState(loops.id, 'activate')} variant={loops.state !== 'off' ? "contained" : "outlined"} color="primary">
                         ON
                     </Button>

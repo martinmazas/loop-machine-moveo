@@ -25,7 +25,6 @@ export default function Pad() {
     const changeLoopState = (id, cond) => {
         const changeLoop = loops.filter(loop => loop.id === id);
         changeLoop[0].state = cond === 'activate' ? 'wait' : 'off';
-        console.log(changeLoop);
         setLoops(loops => [...loops]);
     }
 
