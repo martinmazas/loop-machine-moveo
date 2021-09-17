@@ -58,6 +58,7 @@ export default function MediaControlCard(props) {
 
   const handleClickStop = () => {
     props.setPlaying(false);
+    props.switchAllOff();
   }
 
   return (

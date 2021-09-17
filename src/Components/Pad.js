@@ -34,11 +34,16 @@ export default function Pad() {
         setLoops(loops => [...loops]);
     }
 
+    const switchAllOff = () => {
+        loops.map(loop => loop.state = 'off');
+        setLoops(loops => [...loops]);
+    }
+
     return (
         <React.Fragment>
             <CssBaseline />
             <Container fixed style={styles.wrapper}>
-                <MediaControlCard setPlaying={setPlaying} switchWaitToOn={switchWaitToOn} />
+                <MediaControlCard setPlaying={setPlaying} switchWaitToOn={switchWaitToOn} switchAllOff={switchAllOff} />
                 <div style={styles.squares}>
                     {loops.map((loop => (
                         <Square key={loop.id} loop={loop} changeLoopState={changeLoopState} playing={playing} switchWaitToOn={switchWaitToOn} />
