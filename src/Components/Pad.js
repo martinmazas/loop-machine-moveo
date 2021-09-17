@@ -28,7 +28,10 @@ export default function Pad() {
         setLoops(loops => [...loops]);
     }
 
+    // To avoid delay, first turn the 'on' state to 'wait' and after each 'wait' to 'on'
     const switchWaitToOn = () => {
+        loops.map(loop => loop.state === 'on' ? loop.state = 'wait' : "");
+        setLoops(loops => [...loops]);
         loops.map(loop => loop.state === 'wait' ? loop.state = 'on' : "");
         setLoops(loops => [...loops]);
     }
