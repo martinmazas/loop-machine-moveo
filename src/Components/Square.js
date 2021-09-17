@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default function Square(props) {
     const classes = useStyles();
-    const loops = props.loop;
+    const loop = props.loop;
     const playing = props.playing;
     const changeLoopState = props.changeLoopState;
     const switchWaitToOn = props.switchWaitToOn;
@@ -30,9 +30,9 @@ export default function Square(props) {
         <Card className={classes.root} variant="outlined">
             <CardContent>
                 <div className="stateControl" style={{ alignItems: 'space-between' }}>
-                    {loops.state === 'on' ?
+                    {loop.state === 'on' ?
                         <ReactHowler
-                            src={loops.url}
+                            src={loop.url}
                             playing={playing}
                             html5={true}
                             preload={true}
@@ -40,19 +40,18 @@ export default function Square(props) {
                         /> : ""
                     }
 
-                    <Button className="onButton" onClick={() => changeLoopState(loops.id, 'activate')} variant={loops.state !== 'off' ? "contained" : "outlined"} color="primary">
+                    <Button className="onButton" onClick={() => changeLoopState(loop.id, 'activate')} variant={loop.state !== 'off' ? "contained" : "outlined"} color="primary">
                         ON
                     </Button>
-                    <Button className="offButton" onClick={() => changeLoopState(loops.id, 'deactivate')} variant={loops.state === 'off' ? "contained" : "outlined"} color="secondary">
+                    <Button className="offButton" onClick={() => changeLoopState(loop.id, 'deactivate')} variant={loop.state === 'off' ? "contained" : "outlined"} color="secondary">
                         OFF
                     </Button>
                 </div>
                 <div className="loopName" style={{ marginTop: '10vh' }}>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        {loops.name}
+                        {loop.name}
                     </Typography>
                 </div>
-
             </CardContent>
         </Card>
     );
