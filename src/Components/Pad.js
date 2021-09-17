@@ -36,6 +36,7 @@ export default function Pad() {
         setLoops(loops => [...loops]);
     }
 
+    // switch all loops to off
     const switchAllOff = () => {
         loops.map(loop => loop.state = 'off');
         setLoops(loops => [...loops]);
